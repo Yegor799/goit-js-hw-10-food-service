@@ -102,6 +102,7 @@
     "gensync": "^1.0.0-beta.1",
     "get-value": "^2.0.6",
     "getpass": "^0.1.7",
+    "gh-pages": "^3.1.0",
     "glob-to-regexp": "^0.3.0",
     "globals": "^11.12.0",
     "graceful-fs": "^4.2.4",
@@ -115,7 +116,9 @@
   },
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html --public-url /goit-js-hw-10-food-service/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -126,5 +129,5 @@
   "bugs": {
     "url": "https://github.com/Yegor799/goit-js-hw-10-food-service/issues"
   },
-  "homepage": "https://github.com/Yegor799/goit-js-hw-10-food-service#readme"
+  "homepage": "https://Yegor799.github.io/goit-js-hw-10-food-service"
 }
