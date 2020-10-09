@@ -5,13 +5,25 @@ const menuContainer = document.querySelector('.js-menu');
 const checkBox = document.querySelector('#theme-switch-toggle');
 const body = document.querySelector('body');
 const menuMarkup = createMenuMarkup(menu);
-const savedTheme = localStorage.getItem('Theme');
+
 const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
 };
 
 body.classList.add(Theme.LIGHT);
+
+const savedTheme = localStorage.getItem('Theme');
+
+if (savedTheme === Theme.DARK) {
+  checkBox.checked = true;
+  body.classList.add(Theme.DARK);
+}
+
+if (savedTheme === Theme.LIGHT) {
+  checkBox.checked = false;
+  body.classList.add(Theme.LIGHT);
+}
 
 checkBox.addEventListener('change', onCheckBoxClick);
 
@@ -31,14 +43,4 @@ function onCheckBoxClick(event) {
     body.classList.add(Theme.LIGHT);
     localStorage.setItem('Theme', Theme.LIGHT);
   }
-}
-
-if (savedTheme === Theme.DARK) {
-  checkBox.checked = true;
-  body.classList.add(Theme.DARK);
-}
-
-if (savedTheme === Theme.LIGHT) {
-  checkBox.checked = false;
-  body.classList.add(Theme.LIGHT);
 }
